@@ -6,7 +6,8 @@
     i18n_domain="collective.js.abcjs">
 
   <five:registerPackage package="." initialize=".initialize" />
-
+  <include package=".examples" />
+  
   <browser:resourceDirectory
     name="collective.js.abcjs"
     directory="resources"
