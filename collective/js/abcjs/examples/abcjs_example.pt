@@ -34,24 +34,7 @@
 
 	<p>For more information, see <a href="http://code.google.com/p/abcjs/" >the project page</a>. There is also an application using this
 		<a href="http://drawthedots.com">here</a>.</p>
-<hr />
-<textarea id="abc-text">
-X:1
-T: Cooley's
-M: 4/4
-L: 1/8
-R: reel
-K: Emin
-|:D2|EB{c}BA B2 EB|~B2 AB dBAG|FDAD BDAD|FDAD dAFD|
-EBBA B2 EB|B2 AB defg|afe^c dBAF|DEFD E2:|
-|:gf|eB B2 efge|eB B2 gedB|A2 FA DAFA|A2 FA defg|
-eB B2 eBgB|eB B2 defg|afe^c dBAF|DEFD E2:|
-</textarea>
-<div id="abc-edit"></div>
-<div id="midi-edit"></div>
-<div id="warnings-edit"></div>
- 
- 
+
 <script type="text/javascript">
     var cooleys = "X:1\nT: Cooley's\nM: 4/4\nL: 1/8\nR: reel\nK: Emin\n|:D2|EB{c}BA B2 EB|~B2 AB dBAG|FDAD BDAD|FDAD dAFD|\nEBBA B2 EB|B2 AB defg|afe^c dBAF|DEFD E2:|\n|:gf|eB B2 efge|eB B2 gedB|A2 FA DAFA|A2 FA defg|\neB B2 eBgB|eB B2 defg|afe^c dBAF|DEFD E2:|\n";
     var chorus = '%%staffwidth 500\nX: 1\nT: Chorus\nV: T1 clef=treble name="Soprano"\nV: T2 clef=treble name="Alto"\nV: B1 clef=bass name="Tenor"\nV: B2 clef=bass name="Bass"\nL:1/8\nK:G\nP:First Part\n[V: T1]"C"ed"Am"ed "F"cd"G7"gf |\n[V: T2]GGAA- A2BB |\n[V: B1]C3D- DF,3 |\n[V: B2]C,2A,,2 F,,2G,,2 |';
@@ -75,6 +58,58 @@ eB B2 eBgB|eB B2 defg|afe^c dBAF|DEFD E2:|
 
 <h3>Thanks to http://urdle.free.fr/mediawiki/index.php?title=Testjs for the examples !</h3>
 
+<hr />
+<div id="abc-edit"></div>
+<textarea id="abc-text" rows="20" cols="80" onkeyup="updateABC()">
+X:1
+T: Cooley's
+M: 4/4
+Q:250
+P: AAAA
+L: 1/8
+R: reel
+K: Emin
+P:A
+|:D2|EB{c}BA B2 EB|~B2 AB dBAG|FDAD BDAD|FDAD dAFD|
+EBBA B2 EB|B2 AB defg|afe^c dBAF|DEFD E2:|
+P:B
+|:gf|eB B2 efge|eB B2 gedB|A2 FA DAFA|A2 FA defg|
+eB B2 eBgB|eB B2 defg|afe^c dBAF|DEFD E2:|
+</textarea>
+
+<div id="midi-edit"></div>
+<div id="warnings-edit"></div>
+<script type="text/javascript">
+
+ABCJS.renderAbc('abc-edit', jq("#abc-text").text() , {}, {scale:0.8});
+
+function updateABC() {
+	var input = jq("#abc-text").val();
+	ABCJS.renderAbc('abc-edit', input, {}, {scale:0.8});
+};
+
+/*
+window.onload = function() {
+    abc_editor = new ABCJS.Editor("abc-text", { canvas_id: "abc-edit", midi_id:"midi-edit", warnings_id:"warnings-edit" });
+} ;
+*/
+
+/*
+alert ('sdfsfsdf');
+*/
+/*
+jq("#abc-text").change(function() {
+	ABCJS.renderAbc("abc-text", {
+			   canvas_id: "abc-edit",
+			   midi_id:"midi-edit",
+			   warnings_id:"warnings-edit",
+			   
+			   });
+		   alert ('changesssss....');
+		   }
+			   );
+*/
+</script>
 </metal:main>
 
 </body>
