@@ -60,11 +60,15 @@
 
 <hr />
 <div id="abc-edit"></div>
+<div id="slider" onchange="seeSlider()"></div>
+<textarea id="slider-value" rows="1" cols="5"></textarea> 
+<div id="midi-edit"></div>
+<div id="warnings-edit"></div>
 <textarea id="abc-text" rows="20" cols="80" onkeyup="updateABC()">
 X:1
 T: Cooley's
 M: 4/4
-Q:250
+Q: 250
 P: AAAA
 L: 1/8
 R: reel
@@ -77,16 +81,76 @@ P:B
 eB B2 eBgB|eB B2 defg|afe^c dBAF|DEFD E2:|
 </textarea>
 
-<div id="midi-edit"></div>
-<div id="warnings-edit"></div>
+
 <script type="text/javascript">
 
+jq("#slider").slider({
+	step : 5 , 
+	min: 50 , 
+	max: 400 , 
+	range: false, 
+	animate: "fast" ,
+	change: function(){updateSpeed() } 
+	});
+speed = getSpeed(),
+alert(speed);
+jq("#slider").slider("option" , "value" , speed);
+
+function updateSpeed() {
+	// alert(jq("#slider").slider("option", "value"));
+	// jq("#slider-value").text(jq("#slider").slider("option", "value"));
+	var speed = jq("#slider").slider("option", "value") ;
+	jq("#slider-value").text(jq("#slider").slider("option", "value"));
+	setSpeed(speed) ;
+	ABCJS.renderAbc('abc-edit', jq("#abc-text").text() , {}, {scale:0.8});
+	ABCJS.renderMidi('midi-edit',jq("#abc-text").text(), {}) ;
+}
 ABCJS.renderAbc('abc-edit', jq("#abc-text").text() , {}, {scale:0.8});
+ABCJS.renderMidi('midi-edit',jq("#abc-text").text(), {}) ;
+var q = getSpeed()
+function getSpeed() {
+	abcInput = jq("#abc-text").val();
+	lines = abcInput.split('\n');
+	i = 0 ;
+	for (i ; i < lines.length ; i++) {
+		if (lines[i].split(':')[0] == 'Q') {
+			// alert(parseInt(lines[i].split(':')[1]) + 3) ;
+			return parseInt(lines[i].split(':')[1]) ;
+		}
+	}
+	return 0
+}
+
+function setSpeed(q) {
+	abcInput = jq("#abc-text").val();
+	lines = abcInput.split('\n');
+	i = 0 ;
+	for (i ; i < lines.length ; i++) {
+		if (lines[i].split(':')[0] == 'Q') {
+			// alert(parseInt(lines[i].split(':')[1]) + 3) ;
+			lines[i] = 'Q: ' + q
+			// return parseInt(lines[i].split(':')[1]) ;
+			break;
+		}
+	}
+	abcText = '';
+	i = 0 ;
+	for (i ; i < lines.length ; i++) {
+		abcText = abcText + lines[i] + '\n';
+	}
+	return abcText
+}
 
 function updateABC() {
 	var input = jq("#abc-text").val();
 	ABCJS.renderAbc('abc-edit', input, {}, {scale:0.8});
+	ABCJS.renderMidi('midi-edit',input, {});
 };
+
+// alert(q) ;
+abcText = setSpeed(80);
+jq("#abc-text").text(abcText);
+ABCJS.renderMidi('midi-edit',abcText, {});
 
 /*
 window.onload = function() {
