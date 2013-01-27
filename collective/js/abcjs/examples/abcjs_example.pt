@@ -152,27 +152,6 @@ abcText = setSpeed(80);
 jq("#abc-text").text(abcText);
 ABCJS.renderMidi('midi-edit',abcText, {});
 
-/*
-window.onload = function() {
-    abc_editor = new ABCJS.Editor("abc-text", { canvas_id: "abc-edit", midi_id:"midi-edit", warnings_id:"warnings-edit" });
-} ;
-*/
-
-/*
-alert ('sdfsfsdf');
-*/
-/*
-jq("#abc-text").change(function() {
-	ABCJS.renderAbc("abc-text", {
-			   canvas_id: "abc-edit",
-			   midi_id:"midi-edit",
-			   warnings_id:"warnings-edit",
-			   
-			   });
-		   alert ('changesssss....');
-		   }
-			   );
-*/
 </script>
 </metal:main>
 
