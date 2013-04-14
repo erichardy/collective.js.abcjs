@@ -139,6 +139,7 @@ function updateSpeedFromSlider() {
 	jq("#abc-text").val(abcText);
 	updateABC();
 }
+
 minSpeed = 20 ;
 maxSpeed = 400 ;
 stepSpeed = 5 ;
