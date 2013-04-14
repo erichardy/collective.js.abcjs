@@ -8,3 +8,5 @@ web site : http://code.google.com/p/abcjs/
 This add-on is to be included in the plone project : collective.abcmusic
 https://github.com/erichardy/collective.abcmusic
 
+NB: Version product (1.4.1) to match abcjs 1.4 version used here
+
