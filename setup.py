@@ -26,8 +26,7 @@ setup(name='collective.js.abcjs',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-	      'plone.app.jquery',
-          'collective.js.jqueryui',
+	  'plone.app.jquery',
       ],
       extras_require = dict(
           tests=['plone.app.testing'],
