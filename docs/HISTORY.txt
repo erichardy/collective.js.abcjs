@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.4.7 (unreleased)
+1.7.0 (2013-05-07)
 ------------------
 
-- Nothing changed yet.
+- Update to abcjs 1.7
+- Scripts not enabled in the javascript registry by default
 
 
 1.4.6 (2013-05-01)
