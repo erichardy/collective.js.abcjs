@@ -1,10 +1,10 @@
 Changelog
 =========
 
-1.7.1 (unreleased)
-------------------
+1.10 (2014-06-09)
+-----------------
 
-- Nothing changed yet.
+- Update to abcjs 1.10
 
 
 1.7.0 (2013-05-07)
