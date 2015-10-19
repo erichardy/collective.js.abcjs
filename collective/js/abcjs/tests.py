@@ -1,3 +1,4 @@
+"""
 import unittest
 
 from zope.testing import doctestunit
@@ -52,3 +53,4 @@ def test_suite():
 
 if __name__ == '__main__':
     unittest.main(defaultTest='test_suite')
+"""

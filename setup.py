@@ -10,10 +10,8 @@ setup(name='collective.js.abcjs',
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
-      classifiers=[
-        "Framework :: Plone",
-        "Programming Language :: Python",
-        ],
+      classifiers=["Framework :: Plone",
+                   "Programming Language :: Python", ],
       keywords='',
       author='',
       author_email='',
@@ -26,9 +24,9 @@ setup(name='collective.js.abcjs',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-	  'plone.app.jquery',
-      ],
-      extras_require = dict(
+          'plone.app.jquery',
+          ],
+      extras_require=dict(
           tests=['plone.app.testing'],
       ),
       entry_points="""
