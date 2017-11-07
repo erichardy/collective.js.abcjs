@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<registry>
+
+  <records prefix="plone.resources/main-abcjs"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++resource++collective.js.abcjs/abcjs_editor_midi_3.1.4-min.js</value>
+      <value key="css">
+        <element>++resource++collective.js.abcjs/abcjs-midi.css</element>
+      </value>
+  </records>
+
+  <records prefix="plone.bundles/abcjs"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="enabled">True</value>
+    <value key="resources">
+        <element>main-abcjs</element>
+    </value>
+    <value key="jscompilation">++resource++collective.js.abcjs/main-abcjs-compiled.js</value>
+    <value key="csscompilation">++resource++collective.js.abcjs/abcjs-compiled.min.css</value>
+    <value key="last_compilation">2015-11-11 00:00:00</value>
+    <value key="compile">True</value>
+    <value key="depends">plone</value>
+  </records>
+
+</registry>

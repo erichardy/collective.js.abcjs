@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+
 from setuptools import setup, find_packages
 import os
 
-version = '1.10.dev0'
+version = '3.1.4.dev0'
 
 setup(name='collective.js.abcjs',
       version=version,
@@ -10,13 +12,20 @@ setup(name='collective.js.abcjs',
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
-      classifiers=["Framework :: Plone",
-                   "Programming Language :: Python", ],
-      keywords='',
-      author='',
-      author_email='',
-      url='http://svn.plone.org/svn/collective/',
-      license='GPL',
+      classifiers=[
+        "Environment :: Web Environment",
+        "Framework :: Plone",
+        "Framework :: Plone :: 5.0",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
+        "Operating System :: OS Independent",
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+    ],
+      keywords='Python Plone',
+    author='Eric Hardy',
+    author_email='Eric.Hardy@univ-brest.fr',
+    url='https://pypi.python.org/pypi/collective.js.abcjs',
+      license='GPL version 2',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['collective', 'collective.js'],
       include_package_data=True,
