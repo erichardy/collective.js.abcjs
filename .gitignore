@@ -1,6 +1,7 @@
 .project
 .pydevproject
 .settings
+node_modules
 *.mo
 *.egg-info
 *.egg

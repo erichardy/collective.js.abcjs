@@ -1,0 +1,18 @@
+{
+  "//": "Put here only devDependencies, theme dependencies should stay inside of the theme folder.",
+  "name": "collective.js.abcjs",
+  "version": "1.0.0",
+  "devDependencies": {
+    "autoprefixer": "^6.5.1",
+    "cssnano": "^3.7.7",
+    "grunt": "^0.4.5",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-uglify": "^3.1.0",
+    "grunt-contrib-watch": "latest",
+    "grunt-postcss": "^0.8.0",
+    "less-plugin-inline-urls": "^1.1.0",
+    "pixrem": "^3.0.2"
+  }
+}

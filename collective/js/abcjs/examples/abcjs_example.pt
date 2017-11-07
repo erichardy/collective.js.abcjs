@@ -7,11 +7,17 @@
       i18n:domain="plone">
 
 <head>
-
 </head>
 
 <body>
+<metal:js fill-slot="javascript_head_slot">
+    <script type="text/javascript" 
+            language="javascript"
+            src="++resource++collective.js.abcjs/abcjs_editor_midi_3.1.4-min.js"></script>
+</metal:js>
+
 <metal:main fill-slot="main">
+
 <div id="content-core">
 
 	<h1>abcjs basic demo page</h1>
@@ -93,7 +99,7 @@ eB B2 eBgB|eB B2 defg|afe^c dBAF|DEFD E2:|
 <script type="text/javascript">
 
 function getSpeed() {
-	abcInput = jq("#abc-text").val();
+	abcInput = $("#abc-text").val();
 	lines = abcInput.split('\n');
 	i = 0 ;
 	for (i ; i < lines.length ; i++) {
@@ -104,7 +110,7 @@ function getSpeed() {
 	return 0
 }
 function setSpeed(q) {
-	abcInput = jq("#abc-text").val();
+	abcInput = $("#abc-text").val();
 	lines = abcInput.split('\n');
 	i = 0 ;
 	for (i ; i < lines.length ; i++) {
@@ -120,44 +126,25 @@ function setSpeed(q) {
 	}
 	return abcText
 }
-function updateSlider() {
-	speed = getSpeed() ;
-	jq('#slider').slider("option" , "value" , speed) ;
-	jq("#slider-value").text(speed);
-
-}
 function updateABC() {
-	var input = jq("#abc-text").val();
-	updateSlider() ;
+	var input = $("#abc-text").val();
 	ABCJS.renderAbc('abc-edit', input, {}, {scale:0.8});
 	ABCJS.renderMidi('midi-edit',input, {});
 };
 function updateSpeedFromSlider() {
-	var speed = jq("#slider").slider("option", "value") ;
-	jq("#slider-value").text(jq("#slider").slider("option", "value"));
+	var speed = $("#slider").slider("option", "value") ;
+	$("#slider-value").text($("#slider").slider("option", "value"));
 	abcText = setSpeed(speed) ;
-	jq("#abc-text").val(abcText);
+	$("#abc-text").val(abcText);
 	updateABC();
 }
 
 minSpeed = 20 ;
 maxSpeed = 400 ;
 stepSpeed = 5 ;
-jq("#slider").slider({
-	step : stepSpeed , 
-	min: minSpeed , 
-	max: maxSpeed , 
-	range: false, 
-	animate: "fast" ,
-	change: function(event,ui){if (event.originalEvent){updateSpeedFromSlider()} }
-	});
 
-speed = getSpeed() ;
-jq("#slider").width("350px") ;
-jq("#slider").slider("option" , "value" , speed);
-jq("#slider-value").text(speed);
-ABCJS.renderAbc('abc-edit', jq("#abc-text").text() , {}, {scale:0.8});
-ABCJS.renderMidi('midi-edit',jq("#abc-text").text(), {}) ;
+ABCJS.renderAbc('abc-edit', $("#abc-text").text() , {}, {scale:0.8});
+ABCJS.renderMidi('midi-edit',$("#abc-text").text(), {}) ;
 
 </script>
 </metal:main>
